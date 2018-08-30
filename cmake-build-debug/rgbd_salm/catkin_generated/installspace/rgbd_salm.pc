@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: rgbd_salm
+Description: Description of rgbd_salm
+Version: 0.0.0
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: 

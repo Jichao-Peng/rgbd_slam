@@ -27,6 +27,26 @@ pcl/visualization/cloud_viewer.h
 -
 sensor_msgs/PointCloud2.h
 -
+g2o/types/slam3d/types_slam3d.h
+-
+g2o/core/sparse_optimizer.h
+-
+g2o/core/block_solver.h
+-
+g2o/core/factory.h
+-
+g2o/core/optimization_algorithm_factory.h
+-
+g2o/core/optimization_algorithm_gauss_newton.h
+-
+g2o/solvers/eigen/linear_solver_eigen.h
+-
+g2o/core/robust_kernel.h
+-
+g2o/core/robust_kernel_impl.h
+-
+g2o/core/optimization_algorithm_levenberg.h
+-
 slam_base.h
 /home/leo/Desktop/learn_rgbdsalm/src/rgbd_salm/src/slam_base.h
 

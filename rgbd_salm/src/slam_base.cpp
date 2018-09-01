@@ -6,6 +6,7 @@
 pcl::PointCloud<pcl::PointXYZRGB>::Ptr SLAMBase::JoinPointCloud(pcl::PointCloud<pcl::PointXYZRGB>::Ptr original_cloud, FRAME &new_frame, Eigen::Isometry3d T,
                                                             CAMERA_INTRINSIC_PARAMETERS &camera)
 {
+    cout<<"start join the cloud"<<endl;
     clock_t time_a,time_b,time_c,time_d;
     time_a = clock();
 
@@ -132,6 +133,7 @@ RESULT_OF_PNP SLAMBase::EstimateMotion(FRAME &frame1, FRAME &frame2, CAMERA_INTR
     //关键点进行匹配
     vector< DMatch > matches;
     BFMatcher matcher;
+    //cout<<"descriptor 1 is"<<frame1.descriptor.size()<<"descriptor 2 is"<<frame2.descriptor.size()<<endl;
     matcher.match( frame1.descriptor, frame2.descriptor, matches );
 
     //筛选特征点
@@ -206,7 +208,8 @@ RESULT_OF_PNP SLAMBase::EstimateMotion(FRAME &frame1, FRAME &frame2, CAMERA_INTR
     Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     Mat rvec, tvec, inliers;
 
-    // 求解pnp
+    // 求解pnp,pts_obj相当于点在世界坐标系下的坐标，pts_img相当于点在相机坐标系下的坐标，输出是相机坐标系在世界坐标系下的位姿，即世界坐标系乘以该矩阵得到相机坐标系
+    // 前一帧的坐标系乘以该矩阵得到后一帧坐标系下的坐标系
     solvePnPRansac( pts_obj, pts_img, cameraMatrix, Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
 
     result.rvec = rvec;

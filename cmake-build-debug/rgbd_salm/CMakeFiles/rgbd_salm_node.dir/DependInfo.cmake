@@ -24,6 +24,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/pcl-1.7"
   "/usr/include/ni"
   "/usr/include/vtk-5.8"
+  "/usr/include/suitesparse"
   )
 
 # Targets to which this target links.

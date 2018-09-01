@@ -14,17 +14,16 @@
 #include <pcl/visualization/cloud_viewer.h>
 #include <sensor_msgs/PointCloud2.h>
 
-
-//#include <g2o/types/slam3d/types_slam3d.h>
-//#include <g2o/core/sparse_optimizer.h>
-//#include <g2o/core/block_solver.h>
-//#include <g2o/core/factory.h>
-//#include <g2o/core/optimization_algorithm_factory.h>
-//#include <g2o/core/optimization_algorithm_gauss_newton.h>
-//#include <g2o/solvers/eigen/linear_solver_eigen.h>
-//#include <g2o/core/robust_kernel.h>
-//#include <g2o/core/robust_kernel_impl.h>
-//#include <g2o/core/optimization_algorithm_levenberg.h>
+#include <g2o/types/slam3d/types_slam3d.h>
+#include <g2o/core/sparse_optimizer.h>
+#include <g2o/core/block_solver.h>
+#include <g2o/core/factory.h>
+#include <g2o/core/optimization_algorithm_factory.h>
+#include <g2o/core/optimization_algorithm_gauss_newton.h>
+#include <g2o/solvers/eigen/linear_solver_eigen.h>
+#include <g2o/core/robust_kernel.h>
+#include <g2o/core/robust_kernel_impl.h>
+#include <g2o/core/optimization_algorithm_levenberg.h>
 
 #include "slam_base.h"
 
@@ -47,12 +46,12 @@ private:
     Mat GetImage(int frame_num);
     Mat GetDepth(int frame_num);
 
-//    //检查关键帧
-//    CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, bool is_loops=false );
-//    // 检测近距离的回环
-//    void checkNearbyLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptimizer& opti );
-//    // 随机检测回环
-//    void checkRandomLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptimizer& opti );
+    //检查关键帧
+    CHECK_RESULT CheckKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, bool is_loops=false );
+    // 检测近距离的回环
+    void CheckNearbyLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptimizer& opti );
+    // 随机检测回环
+    void CheckRandomLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptimizer& opti );
 };
 
 
